@@ -1,0 +1,212 @@
+# https://github.com/oscarg933.patch 
+ 
+## Search or jump to…
+
+### Pull requests
+Issues
+Marketplace
+Explore
+ @oscarg933 Sign out
+You are over your private repository plan limit (4 of 0). Please upgrade your plan, make private repositories public, or remove private repositories so that you are within your plan limit.
+Your private repositories have been locked until this is resolved. Thanks for understanding. You can contact support with any questions.
+0
+0 1 oscarg933/assemblyai-webrtc-wrapper
+forked from AssemblyAI/assemblyai-webrtc-wrapper
+ Code  Pull requests 0  Projects 0  Wiki  Insights  Settings
+A WebRTC wrapper to stream audio from the browser for Speech-to-Text
+ 12 commits
+ 1 branch
+ 0 releases
+ 2 contributors
+ JavaScript 100.0%
+ Pull request   Compare This branch is 1 commit ahead of AssemblyAI:master.
+@oscarg933
+oscarg933 Create .travis.yml
+Latest commit 7306326  34 minutes ago
+Type	Name	Latest commit message	Commit time
+lib	removed redundant AudioBufferToWav.js script	5 months ago
+.gitignore	init	5 months ago
+.travis.yml	Create .travis.yml	34 minutes ago
+README.md	added voice activation detection featuer to AssemblyAI.startRecording…	5 months ago
+assembly-ai.js	fixed stale buffer issue on firefox browser	5 months ago
+ README.md
+AssemblyAI WebRTC Wrapper
+The AssemblyAI wrapper provides an easy to use interface to stream audio from the browser to the AssemblyAI API for near real-time speech-to-text. For a complete sample project, check out the AssemblyAI Sample WebRTC Project.
+
+Getting started
+Clone this repo
+
+Copy or link the cloned repo to your web project's public script folder Example: /js folder
+
+Include the AssemblyAI javascript file in your HTML document
+
+<script src="public-script-folder/assembly-ai.js"></script>
+Usage
+var assemblyai = new AssemblyAI("your-secret-api-token");
+Create an AssemblyAI instance with your API token.
+
+Start recording
+
+assemblyai.startRecording([autoStop, transcriptionCallback, uiCallback])
+Begin recording audio stream from browser.
+
+Optional parameters:
+
+autoStop: true | false Auto-detect when user is done speaking and stops recording. Requires transcriptionCallback parameter if true.
+
+transcriptionCallback: Function to handle result of transcription operation. For example:
+
+assemblyai.startRecording(true, function(response){
+    console.log(response.text);
+    console.log(response.confidence);
+    console.log(response.id)
+});
+Required if autoStop is true.
+
+uiCallback: Function to handle any UI operations immediately after recording stops:
+
+assemblyai.startRecording(true, transcriptionCallback, function(){
+    /* Code to update UI immediately after recording stops */
+
+    // Change text of record button back from "Recording" to "Record"
+    var button = document.getElementById("record-button");
+    button.innerText("Record");
+});
+Cancel recording
+
+assemblyai.cancelRecording()
+Cancel audio stream being recorded.
+
+Stop recording
+
+assemblyai.stopRecording(callback)
+Stop audio stream being recorded. Recorded audio is sent to the AssemblyAI API for transcription.
+
+callback: Function to handle result of transcription operation. For example:
+
+assemblyai.stopRecording(function(response){
+    console.log(response.text);
+    console.log(response.confidence);
+    console.log(response.id)
+});
+The response argument passed to your callback function will be the following response object returned from the AssemblyAI API:
+
+Example response object:
+{
+  status: 'completed',
+  model_id: 'None',
+  confidence: '0.9',
+  created: '2018-06-25 05:14:28.361123',
+  text: 'the weather is nice today',
+  id: 5
+}
+More details can be found in the full AssemblyAI Documentation.
+
+Save recording
+
+assemblyai.saveRecording()
+Save the recorded audio stream to disk in audio/wav format.
+
+Sample project
+For a complete sample project, check out the AssemblyAI Sample WebRTC Project.
+
+Note
+The wrapper utilizes WebRTC to capture audio from the browser. WebRTC requires web projects to be hosted on localhost or an SSL secured domain.
+
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details. 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @oscarg933 Sign out
+You are over your private repository plan limit (4 of 0). Please upgrade your plan, make private repositories public, or remove private repositories so that you are within your plan limit.
+Your private repositories have been locked until this is resolved. Thanks for understanding. You can contact support with any questions.
+0
+0 2,644 oscarg933/home-assistant.io
+forked from home-assistant/home-assistant.io
+ Code  Pull requests 0  Projects 0  Insights  Settings
+ blue_book Home Assistant User documentation https://www.home-assistant.io
+ 13,545 commits
+ 21 branches
+ 1 release
+ 1,876 contributors
+ View license
+ Pull request   Compare This branch is even with home-assistant:next.
+@dmulcahey
+@cgarwood
+dmulcahey and cgarwood Update ZHA docs for quirks mode flag (home-assistant#7808)  …
+Latest commit 96ad26d  10 hours ago
+Type	Name	Latest commit message	Commit time
+.github	Update some h-a.io/developers links directly to developers.h-a.io (ho…	2 months ago
+.themes/classic	Fixed typos (home-assistant#6623)	2 months ago
+_deploy @ 69146ec	Update github edit link	2 years ago
+plugins	Fixed typos (home-assistant#6623)	2 months ago
+sass	Upgrade Jekyll (home-assistant#7795)	2 days ago
+source	Update ZHA docs for quirks mode flag (home-assistant#7808)	10 hours ago
+.editorconfig	Add EditorConfig file for Ruby files	7 years ago
+.gitattributes	Added .gitattributes file to keep CRLF's out of the codebase.	6 years ago
+.gitignore	Support for Insteon Hub Version 1 (home-assistant#6211)	3 months ago
+.gitmodules	Update deploy to point at master	2 years ago
+.powrc	Adding .powrc to allow RVM to work when POW is updated to version 0.4…	7 years ago
+.project	Abode Cloud Push and new components (home-assistant#3224)	a year ago
+.ruby-version	Update the used Ruby version	9 months ago
+.slugignore	added slugignore to help with heroku deployment	7 years ago
+.travis.yml	Add travis_wait	a year ago
+CLA.md	Add Governance blog post, docs, update footer with Creative Commons l…	2 years ago
+CODE_OF_CONDUCT.md	white_check_mark Various markdown, spelling, and grammar fixes (home-assistant#4503)	11 months ago
+Gemfile	Upgrade Jekyll (home-assistant#7795)	2 days ago
+Gemfile.lock	Upgrade Jekyll (home-assistant#7795)	2 days ago
+LICENSE.md	Add Governance blog post, docs, update footer with Creative Commons l…	2 years ago
+README.markdown	fixed shield for krihelimeter (home-assistant#6925)	2 months ago
+Rakefile	Expanded rake isolate to cover components (home-assistant#5349)	7 months ago
+_config.yml	Release 84.1	3 days ago
+config.rb	Fix http generated images path when using Compass sprites	6 years ago
+config.ru	More fixes	3 years ago
+w800rf32.png	W800rf32 (home-assistant#7373)	a month ago
+ README.markdown
+Discord Travis branch Krihelimeter License: CC BY-NC-SA 4.0
+
+Home Assistant website
+This is the source for the Home-Assistant.io website.
+
+Setup
+Setting up to contribute to documentation and the process for submitting pull requests is explained in the developer documentation.
+
+Site preview
+In order to make the preview available on http://127.0.0.1:4000, use the command as follows:
+
+bundle exec rake preview
+Speeding up site generation
+Every release we post long changelogs to the website. This slows down generation of the website significantly! We include some tools to temporarily exclude the blog posts that you're not working on out of the way.
+
+bundle exec rake isolate[filename-of-blogpost]
+When you're done working on the site, run the following command to move the posts back again:
+
+bundle exec rake integrate
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.
